@@ -1,0 +1,60 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-dropdown/iron-dropdown.html">
+<link rel="import" href="../auto-check-element/auto-check-element.html">
+<link rel="import" href="../time-elements/time-elements.html">
+<dom-module id="jazminm-veloz">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      #container {
+        display: inline-block;
+      }
+
+      iron-dropdown {
+        border: 1px solid gray;
+        background: white;
+        font-size: 2em;
+      }
+      auto-check {display: block;}
+    </style>
+    <div id="container">
+      <h2>Hola [[prop1]]!</h2>
+      <button slot="dropdown-trigger" on-click="open" id="bdrop">Push me</button>
+      <iron-dropdown id="dropdown" no-overlap>
+          <div slot="dropdown-content" class="random-content">
+            <p>¡Have a good day!</p></div>
+      </iron-dropdown>
+      </div>
+  </template>
+  <local-time datetime="2014-04-01T16:30:00-08:00">
+    1 Apr 2014 21:30
+  </local-time>
+  <script>
+    /**
+     * `jazminm-veloz`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class JazminmVeloz extends Polymer.Element {
+      static get is() { return 'jazminm-veloz'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'jazminm-veloz'
+          }
+        };
+      }
+      open(){
+        this.$.dropdown.open();
+      }
+    }
+
+    window.customElements.define(JazminmVeloz.is, JazminmVeloz);
+  </script>
+</dom-module>
